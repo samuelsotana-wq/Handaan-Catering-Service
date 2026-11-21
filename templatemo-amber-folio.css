@@ -176,38 +176,33 @@ nav {
 	transition: all 0.3s ease;
 }
 
-/* Hero Section */
-.hero-section {
-	height: 100vh;
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	position: relative;
-	background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 50%, #0f0f0f 100%);
-	margin-top: 0;
-	overflow: hidden;
+
+
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* 3 cards per row = 2 rows total */
+  gap: 20px;
+  max-width: 1100px;
+  margin: 0 auto;
 }
 
-.hero-section1 {
-	height: 100vh;
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	position: relative;
-	background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 50%, #0f0f0f 100%);
-	margin-top: 0;
-	overflow: hidden;
-}
 
+
+
+.hero-section,
+.hero-section1,
 .hero-section2 {
-	height: 100vh;
+	min-height: 100vh;
+	height: auto;
+	box-sizing: border-box;
 	display: flex;
 	align-items: center;
 	justify-content: center;
 	position: relative;
+	padding: 120px 30px 60px;
 	background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 50%, #0f0f0f 100%);
 	margin-top: 0;
-	overflow: hidden;
+	overflow: visible;
 }
 
 .hero-bg {
@@ -348,12 +343,24 @@ nav {
 	}
 }
 
-.hero-content {
-	text-align: center;
-	z-index: 1;
-	padding: 0 20px;
+.hero-content,
+.about-container {
+	width: 100%;
+	max-width: 1100px;
+	margin: 0 auto;
+	padding: 0;
+	box-sizing: border-box;
 }
 
+/* Force both grids to fill the wrapper and align identically */
+.services-grid {
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
+	gap: 25px;
+	width: 100%;
+	max-width: 1100px;
+	margin: 0 auto;
+}
 .hero-title {
 	font-size: clamp(2.5rem, 8vw, 5rem);
 	font-weight: 900;
@@ -812,8 +819,13 @@ nav {
 
 /* Contact Section */
 .contact-section {
-	padding: 100px 30px;
+	min-height: 100vh; /* Gives the section enough height to scroll all the way to the top */
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	padding: 120px 30px 100px; /* 120px top padding clears your fixed navbar */
 	background: var(--secondary-dark);
+	box-sizing: border-box;
 }
 
 .contact-container {
